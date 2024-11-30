@@ -53,7 +53,6 @@ router.post('/employees/create', upload.single('image'), async (req, res) => {
         const image = req.file ? req.file.path : null;
        
         const employee = new Employee({ name, email, mobile, designation, gender, course, image });
-        console.log("dwewr");
         // Attempt to save the employee and log the result
         await employee.save();
         console.log('Employee saved successfully:', employee);
@@ -68,7 +67,7 @@ router.post('/employees/create', upload.single('image'), async (req, res) => {
 
 
 // Update an employee by ID
-router.put('/update', upload.single('image'), async (req, res) => {
+router.put('/employees/update', upload.single('image'), async (req, res) => {
     const { name, email, mobile, designation, gender, course } = req.body;
     try {
         const image = req.file ? req.file.path : null;
